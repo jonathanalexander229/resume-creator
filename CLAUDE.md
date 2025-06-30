@@ -17,11 +17,14 @@ The project is evolving from a single static HTML file (`jc_resume.html`) into a
 
 ## Current State
 
-- Single HTML file with embedded CSS styling
-- Professional two-column layout (sidebar + main content)
-- Print-optimized styling (8.5x11 inch format)
-- Color scheme: Dark sidebar (#3a4750) with white main content
-- Responsive typography with careful font sizing for print
+The project has been successfully modularized into a YAML-based system:
+
+- **Data Layer**: `resume-data.yml` contains all resume content in structured format
+- **Layout System**: `layout-config.yml` defines styling, colors, typography, and layout structure
+- **Two Generation Approaches**:
+  - `js-render/`: Client-side JavaScript that loads YAML dynamically
+  - `python-build/`: Static site generator that creates self-contained HTML
+- **Profile Image**: Properly integrated with relative paths in both systems
 
 ## Key Design Elements
 
