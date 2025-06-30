@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Crissey</title>
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.4;
+    color: #333333;
+    background: #ffffff;
+}
+
+.resume-container {
+    max-width: 8.5in;
+    min-height: 11in;
+    margin: 0 auto;
+    display: flex;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.sidebar {
+    width: 35%;
+    background: #3a4750;
+    color: #ffffff;
+    padding: 40px 30px;
+}
+
+.main-content {
+    width: 65%;
+    padding: 40px;
+    background: #ffffff;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ddd;
+}
+
+.sidebar h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #5a6a7a;
+    padding-bottom: 8px;
+}
+
+.sidebar h3 {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.sidebar p, .sidebar li {
+    font-size: 10px;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+
+.skills-category {
+    margin-bottom: 15px;
+}
+
+.skills-category strong {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 3px;
+}
+
+.main-content h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #3a4750;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.main-content h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3a4750;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.job-title {
+    font-size: 12px;
+    font-weight: bold;
+    color: #3a4750;
+}
+
+.job-date {
+    font-size: 10px;
+    color: #666666;
+    font-style: italic;
+}
+
+.job-company {
+    font-size: 10px;
+    color: #666666;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.main-content ul {
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.main-content li {
+    font-size: 10px;
+    margin-bottom: 3px;
+    color: #555555;
+}
+
+.profile-text {
+    font-size: 11px;
+    color: #555555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+@media print {
+    .resume-container {
+        box-shadow: none;
+        max-width: none;
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="sidebar">
+            <div class="profile-image" style="background-image: url('/Users/clutchcoder/working/IMG_4428.jpeg');"></div>
+        <h2>CONTACT</h2>
+        <p>joncrissey@icloud.com</p>
+        <p>Leander, Texas 78641</p>
+        <br>
+        <p><strong>Website:</strong></p>
+        <p>github.com/jonathanalexander229</p><h2>EDUCATION</h2>
+                <h3>B.S. Computer Science</h3>
+                <p>2007</p>
+                <p><em>University of Texas at San Antonio</em></p>
+                <h2>SKILLS</h2>
+                <div class="skills-category">
+                    <strong>• Languages & Dev Tools:</strong>
+                    <p>Python, Java, Swift, PHP, Docker, Jenkins</p>
+                </div>
+                
+                <div class="skills-category">
+                    <strong>• Cloud & Automation:</strong>
+                    <p>Ansible, Secrets Management, REST APIs, Agile CI/CD, Test-Driven Development, dmtf redfish</p>
+                </div>
+                
+                <div class="skills-category">
+                    <strong>• Mobile & Web Development:</strong>
+                    <p>Android, iOS, MVMC Framework, Web Technologies</p>
+                </div>
+                
+                <div class="skills-category">
+                    <strong>• Infrastructure & Systems:</strong>
+                    <p>Linux/Unix Administration, TLS, Network Troubleshooting, Jira Workflow, Relational Databases</p>
+                </div>
+                <h2>INTERESTS</h2><p>Mountain Biking • Mobile Development • Equity Markets • Cooking • Hiking • Camping • Photography</p>
+        </div>
+        <div class="main-content">
+            <h1>Jonathan Crissey</h1><h2>PROFILE</h2><p class="profile-text">Results-oriented Software Engineer with 18 years of experience across IT ecosystem. 6 years application/platform support, 4 years Mobile Dev, and 6 years Cloud SRE/Dev. Exploring new opportunities with professional results driven teams.</p><h2>EXPERIENCE</h2>
+                <div class="job-header">
+                    <span class="job-title">Cloud Hardware Platform Engineer</span>
+                    <span class="job-date">2024-09 – Present</span>
+                </div>
+                <p class="job-company">IBM – Austin, TX</p>
+                <ul>
+                <li>Automated BMC & hardware configurations</li><li>Validated & stress-tested hardware for performance</li><li>Maintained monitoring tools; improved issue visibility</li><li>Tier-3 support for infrastructure hardware</li></ul>
+                <div class="job-header">
+                    <span class="job-title">Cloud Storage Engineer</span>
+                    <span class="job-date">2021 – 2024-09</span>
+                </div>
+                <p class="job-company">IBM – Austin, TX</p>
+                <ul>
+                <li>Used Ansible for storage deployment & maintenance</li><li>Focused on compliance & operational reliability</li><li>Partnered with SRE to enhance deployment pipelines</li></ul>
+                <div class="job-header">
+                    <span class="job-title">Cloud Developer</span>
+                    <span class="job-date">2017 – 2019</span>
+                </div>
+                <p class="job-company">IBM – Austin, TX</p>
+                <ul>
+                <li>Developed cloud workflows for compute platform</li><li>Improved open-source APIs & platform stability</li><li>Reduced downtime with targeted development</li></ul>
+                <div class="job-header">
+                    <span class="job-title">Staff Software Engineer – Mobile</span>
+                    <span class="job-date">2013 – 2017</span>
+                </div>
+                <p class="job-company">IBM – Austin, TX</p>
+                <ul>
+                <li>Led development of Android apps (Sametime, Traveler)</li><li>Ensured UX compliance & MDM integration</li><li>Maintained backward compatibility</li></ul>
+                <div class="job-header">
+                    <span class="job-title">Software Support Engineer</span>
+                    <span class="job-date">2007 – 2013</span>
+                </div>
+                <p class="job-company">IBM – Austin, TX</p>
+                <ul>
+                <li>Specialized in Linux-based troubleshooting (Sametime)</li><li>Lead for escalated issues & onsite deployments</li></ul>
+                <div class="job-header">
+                    <span class="job-title">IT Apprentice Intern</span>
+                    <span class="job-date">2006 – 2007</span>
+                </div>
+                <p class="job-company">USAA – San Antonio, TX</p>
+                <ul>
+                <li>Rewrote COBOL apps in Java on AS/400</li><li>Enhanced maintainability for Claims tools</li></ul>
+        </div>
+    </div>
+</body>
+</html>

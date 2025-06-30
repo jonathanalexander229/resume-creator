@@ -1,0 +1,136 @@
+personal:
+  full_name: "Jonathan Crissey"
+  contact:
+    email: "joncrissey@icloud.com"
+    location:
+      city: "Leander"
+      state: "Texas"
+      zip: "78641"
+    links:
+      - type: "github"
+        url: "github.com/jonathanalexander229"
+        display: "github.com/jonathanalexander229"
+  profile_image:
+    path: "/Users/clutchcoder/working/IMG_4428.jpeg"
+    alt: "Jonathan Crissey Profile Photo"
+
+sections:
+  profile:
+    title: "PROFILE"
+    content: "Results-oriented Software Engineer with 18 years of experience across IT ecosystem. 6 years application/platform support, 4 years Mobile Dev, and 6 years Cloud SRE/Dev. Exploring new opportunities with professional results driven teams."
+    
+  experience:
+    title: "EXPERIENCE"
+    jobs:
+      - position: "Cloud Hardware Platform Engineer"
+        company: "IBM"
+        location: "Austin, TX"
+        start_date: "2024-09"
+        end_date: "present"
+        achievements:
+          - "Automated BMC & hardware configurations"
+          - "Validated & stress-tested hardware for performance"
+          - "Maintained monitoring tools; improved issue visibility"
+          - "Tier-3 support for infrastructure hardware"
+      
+      - position: "Cloud Storage Engineer"
+        company: "IBM"
+        location: "Austin, TX"
+        start_date: "2021"
+        end_date: "2024-09"
+        achievements:
+          - "Used Ansible for storage deployment & maintenance"
+          - "Focused on compliance & operational reliability"
+          - "Partnered with SRE to enhance deployment pipelines"
+      
+      - position: "Cloud Developer"
+        company: "IBM"
+        location: "Austin, TX"
+        start_date: "2017"
+        end_date: "2019"
+        achievements:
+          - "Developed cloud workflows for compute platform"
+          - "Improved open-source APIs & platform stability"
+          - "Reduced downtime with targeted development"
+      
+      - position: "Staff Software Engineer – Mobile"
+        company: "IBM"
+        location: "Austin, TX"
+        start_date: "2013"
+        end_date: "2017"
+        achievements:
+          - "Led development of Android apps (Sametime, Traveler)"
+          - "Ensured UX compliance & MDM integration"
+          - "Maintained backward compatibility"
+      
+      - position: "Software Support Engineer"
+        company: "IBM"
+        location: "Austin, TX"
+        start_date: "2007"
+        end_date: "2013"
+        achievements:
+          - "Specialized in Linux-based troubleshooting (Sametime)"
+          - "Lead for escalated issues & onsite deployments"
+      
+      - position: "IT Apprentice Intern"
+        company: "USAA"
+        location: "San Antonio, TX"
+        start_date: "2006"
+        end_date: "2007"
+        achievements:
+          - "Rewrote COBOL apps in Java on AS/400"
+          - "Enhanced maintainability for Claims tools"
+
+  education:
+    title: "EDUCATION"
+    degrees:
+      - degree: "B.S. Computer Science"
+        institution: "University of Texas at San Antonio"
+        graduation_year: 2007
+
+  skills:
+    title: "SKILLS"
+    categories:
+      - name: "Languages & Dev Tools"
+        items:
+          - "Python"
+          - "Java"
+          - "Swift"
+          - "PHP"
+          - "Docker"
+          - "Jenkins"
+      
+      - name: "Cloud & Automation"
+        items:
+          - "Ansible"
+          - "Secrets Management"
+          - "REST APIs"
+          - "Agile CI/CD"
+          - "Test-Driven Development"
+          - "dmtf redfish"
+      
+      - name: "Mobile & Web Development"
+        items:
+          - "Android"
+          - "iOS"
+          - "MVMC Framework"
+          - "Web Technologies"
+      
+      - name: "Infrastructure & Systems"
+        items:
+          - "Linux/Unix Administration"
+          - "TLS"
+          - "Network Troubleshooting"
+          - "Jira Workflow"
+          - "Relational Databases"
+
+  interests:
+    title: "INTERESTS"
+    items:
+      - "Mountain Biking"
+      - "Mobile Development"
+      - "Equity Markets"
+      - "Cooking"
+      - "Hiking"
+      - "Camping"
+      - "Photography"

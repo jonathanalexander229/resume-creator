@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <style id="dynamic-styles"></style>
+</head>
+<body>
+    <div class="controls" style="padding: 20px; background: #f5f5f5; text-align: center; print:display: none;">
+        <h2>Resume Viewer</h2>
+        <button onclick="loadResume()">Reload Resume</button>
+        <select id="layoutSelect" onchange="switchLayout()">
+            <option value="layout-config.yml">Professional Layout</option>
+        </select>
+    </div>
+    
+    <div id="resume-container">
+        <div class="loading">Loading resume...</div>
+    </div>
+
+    <script>
+        let resumeData = null;
+        let layoutConfig = null;
+
+        async function loadYAML(filename) {
+            try {
+                const response = await fetch(filename);
+                const text = await response.text();
+                return jsyaml.load(text);
+            } catch (error) {
+                console.error(`Error loading ${filename}:`, error);
+                return null;
+            }
+        }
+
+        function generateCSS(layout) {
+            const colors = layout.colors;
+            const typography = layout.typography;
+            const spacing = layout.spacing;
+            const elements = layout.elements;
+            
+            return `
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                
+                body {
+                    font-family: ${typography.font_family};
+                    line-height: ${typography.spacing.line_height};
+                    color: ${colors.main.text};
+                    background: ${colors.main.background};
+                }
+                
+                .controls {
+                    margin-bottom: 20px;
+                }
+                
+                .resume-container {
+                    max-width: ${layout.layout.page.max_width};
+                    min-height: ${layout.layout.page.min_height};
+                    margin: 0 auto;
+                    display: flex;
+                    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+                }
+                
+                .sidebar {
+                    width: ${layout.layout.structure.sidebar.width};
+                    background: ${colors.sidebar.background};
+                    color: ${colors.sidebar.text};
+                    padding: ${spacing.container_padding} ${spacing.sidebar_padding};
+                }
+                
+                .main-content {
+                    width: ${layout.layout.structure.main.width};
+                    padding: ${spacing.container_padding};
+                    background: ${colors.main.background};
+                }
+                
+                .profile-image {
+                    width: ${elements.profile_image.width};
+                    height: ${elements.profile_image.height};
+                    border-radius: ${elements.profile_image.border_radius};
+                    margin: 0 auto ${elements.profile_image.margin_bottom};
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-color: #ddd;
+                }
+                
+                .sidebar h2 {
+                    font-size: ${typography.sizes.sidebar_headings};
+                    font-weight: ${typography.weights.headings};
+                    margin-bottom: ${spacing.subsection_margin};
+                    letter-spacing: 1px;
+                    border-bottom: ${elements.borders.sidebar_headings.bottom};
+                    padding-bottom: ${elements.borders.sidebar_headings.padding_bottom};
+                }
+                
+                .sidebar h3 {
+                    font-size: ${typography.sizes.sidebar_subheadings};
+                    font-weight: ${typography.weights.headings};
+                    margin-top: ${spacing.subsection_margin};
+                    margin-bottom: 5px;
+                }
+                
+                .sidebar p, .sidebar li {
+                    font-size: ${typography.sizes.sidebar_text};
+                    margin-bottom: 5px;
+                    line-height: ${typography.spacing.sidebar_line_height};
+                }
+                
+                .sidebar ul {
+                    list-style: none;
+                }
+                
+                .sidebar li {
+                    margin-bottom: ${spacing.item_margin};
+                }
+                
+                .skills-category {
+                    margin-bottom: ${spacing.subsection_margin};
+                }
+                
+                .skills-category strong {
+                    display: block;
+                    font-size: ${typography.sizes.sidebar_text};
+                    margin-bottom: 3px;
+                }
+                
+                .main-content h1 {
+                    font-size: ${typography.sizes.name};
+                    font-weight: ${typography.weights.headings};
+                    color: ${colors.main.headings};
+                    margin-bottom: 10px;
+                    letter-spacing: 2px;
+                }
+                
+                .main-content h2 {
+                    font-size: ${typography.sizes.main_headings};
+                    font-weight: ${typography.weights.headings};
+                    color: ${colors.main.headings};
+                    margin-top: ${spacing.section_margin};
+                    margin-bottom: ${spacing.subsection_margin};
+                    border-bottom: ${elements.borders.main_headings.bottom};
+                    padding-bottom: ${elements.borders.main_headings.padding_bottom};
+                }
+                
+                .job-header {
+                    display: ${elements.job_header.display};
+                    justify-content: ${elements.job_header.justify_content};
+                    align-items: ${elements.job_header.align_items};
+                    margin-bottom: 5px;
+                }
+                
+                .job-title {
+                    font-size: ${typography.sizes.job_titles};
+                    font-weight: ${typography.weights.job_titles};
+                    color: ${colors.main.headings};
+                }
+                
+                .job-date {
+                    font-size: ${typography.sizes.body_text};
+                    color: ${colors.main.muted};
+                    font-style: italic;
+                }
+                
+                .job-company {
+                    font-size: ${typography.sizes.body_text};
+                    color: ${colors.main.muted};
+                    font-style: italic;
+                    margin-bottom: ${spacing.item_margin};
+                }
+                
+                .main-content ul {
+                    margin-left: ${spacing.list_indent};
+                    margin-bottom: ${spacing.subsection_margin};
+                }
+                
+                .main-content li {
+                    font-size: ${typography.sizes.body_text};
+                    margin-bottom: 3px;
+                    color: ${colors.main.secondary};
+                }
+                
+                .profile-text {
+                    font-size: ${typography.sizes.profile_text};
+                    color: ${colors.main.secondary};
+                    line-height: ${typography.spacing.profile_line_height};
+                    margin-bottom: 20px;
+                }
+                
+                @media print {
+                    .controls {
+                        display: none;
+                    }
+                    .resume-container {
+                        box-shadow: none;
+                        max-width: none;
+                        width: 100%;
+                    }
+                }
+            `;
+        }
+
+        function formatDate(dateStr) {
+            if (dateStr === 'present') return 'Present';
+            return dateStr;
+        }
+
+        function renderResume(data, layout) {
+            const personal = data.personal;
+            const sections = data.sections;
+            
+            let sidebarContent = '';
+            let mainContent = '';
+            
+            // Render sidebar sections
+            layout.layout.structure.sidebar.sections.forEach(sectionName => {
+                if (sectionName === 'contact') {
+                    sidebarContent += `
+                        <h2>CONTACT</h2>
+                        <p>${personal.contact.email}</p>
+                        <p>${personal.contact.location.city}, ${personal.contact.location.state} ${personal.contact.location.zip}</p>
+                        <br>
+                        <p><strong>Website:</strong></p>
+                        ${personal.contact.links.map(link => `<p>${link.display}</p>`).join('')}
+                    `;
+                } else if (sections[sectionName]) {
+                    const section = sections[sectionName];
+                    sidebarContent += `<h2>${section.title}</h2>`;
+                    
+                    if (sectionName === 'education') {
+                        section.degrees.forEach(degree => {
+                            sidebarContent += `
+                                <h3>${degree.degree}</h3>
+                                <p>${degree.graduation_year}</p>
+                                <p><em>${degree.institution}</em></p>
+                            `;
+                        });
+                    } else if (sectionName === 'skills') {
+                        section.categories.forEach(category => {
+                            sidebarContent += `
+                                <div class="skills-category">
+                                    <strong>• ${category.name}:</strong>
+                                    <p>${category.items.join(', ')}</p>
+                                </div>
+                            `;
+                        });
+                    } else if (sectionName === 'interests') {
+                        sidebarContent += `<p>${section.items.join(' • ')}</p>`;
+                    }
+                }
+            });
+            
+            // Render main content sections
+            layout.layout.structure.main.sections.forEach(sectionName => {
+                if (sectionName === 'header') {
+                    mainContent += `<h1>${personal.full_name}</h1>`;
+                } else if (sections[sectionName]) {
+                    const section = sections[sectionName];
+                    mainContent += `<h2>${section.title}</h2>`;
+                    
+                    if (sectionName === 'profile') {
+                        mainContent += `<p class="profile-text">${section.content}</p>`;
+                    } else if (sectionName === 'experience') {
+                        section.jobs.forEach(job => {
+                            mainContent += `
+                                <div class="job-header">
+                                    <span class="job-title">${job.position}</span>
+                                    <span class="job-date">${formatDate(job.start_date)} – ${formatDate(job.end_date)}</span>
+                                </div>
+                                <p class="job-company">${job.company} – ${job.location}</p>
+                                <ul>
+                                    ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
+                                </ul>
+                            `;
+                        });
+                    }
+                }
+            });
+            
+            return `
+                <div class="resume-container">
+                    <div class="sidebar">
+                        <div class="profile-image" style="background-image: url('${personal.profile_image.path}');"></div>
+                        ${sidebarContent}
+                    </div>
+                    <div class="main-content">
+                        ${mainContent}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function loadResume() {
+            const container = document.getElementById('resume-container');
+            container.innerHTML = '<div class="loading">Loading resume...</div>';
+            
+            try {
+                resumeData = await loadYAML('resume-data.yml');
+                layoutConfig = await loadYAML('layout-config.yml');
+                
+                if (!resumeData || !layoutConfig) {
+                    container.innerHTML = '<div class="error">Error loading YAML files</div>';
+                    return;
+                }
+                
+                // Generate and inject CSS
+                const css = generateCSS(layoutConfig);
+                document.getElementById('dynamic-styles').textContent = css;
+                
+                // Render resume
+                const resumeHTML = renderResume(resumeData, layoutConfig);
+                container.innerHTML = resumeHTML;
+                
+            } catch (error) {
+                console.error('Error loading resume:', error);
+                container.innerHTML = '<div class="error">Error loading resume</div>';
+            }
+        }
+
+        function switchLayout() {
+            // Future: Load different layout files
+            loadResume();
+        }
+
+        // Load resume on page load
+        document.addEventListener('DOMContentLoaded', loadResume);
+    </script>
+</body>
+</html>
