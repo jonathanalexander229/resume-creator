@@ -1,0 +1,8 @@
+# System files
+.DS_Store
+
+# Generated output
+resume-output.html
+
+# Python cache
+__pycache__/
