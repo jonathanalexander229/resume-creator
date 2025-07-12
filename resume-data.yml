@@ -17,7 +17,7 @@ personal:
 sections:
   profile:
     title: "PROFILE"
-    content: "Results-oriented Software Engineer with 18 years of experience across IT ecosystem. 6 years application/platform support, 4 years Mobile Dev, and 6 years Cloud SRE/Dev. Exploring new opportunities with professional results driven teams."
+    content: "Software Engineer with 18 years of experience spanning enterprise support, mobile development, and cloud infrastructure. Developed mobile applications, automated storage systems lifecycle management using Ansible and Ceph, and currently manage hardware platforms through Redfish APIs. Brings operational perspective to development decisions, helping teams build more reliable and serviceable systems."
     
   experience:
     title: "EXPERIENCE"
@@ -91,38 +91,33 @@ sections:
   skills:
     title: "SKILLS"
     categories:
-      - name: "Languages & Dev Tools"
+      - name: "Systems & Kernel Development"
         items:
-          - "Python"
-          - "Java"
-          - "Swift"
-          - "PHP"
-          - "Docker"
-          - "Jenkins"
+          - "Custom initrd/kernel development for netboot/live boot platforms"
+          - "Linux Administration: RHEL, Ubuntu, SUSE, AIX"
+          - "Storage Systems: Ceph, NetApp, Block/File Storage architecture"
+          - "Hardware Platforms: Supermicro, Lenovo management"
       
-      - name: "Cloud & Automation"
+      - name: "Cloud & Infrastructure Engineering"
         items:
-          - "Ansible"
-          - "Secrets Management"
-          - "REST APIs"
-          - "Agile CI/CD"
-          - "Test-Driven Development"
-          - "dmtf redfish"
+          - "Platforms: IBM Cloud, SoftLayer IMS, distributed storage design"
+          - "Automation: Ansible (Tower/AWX), Jenkins, CI/CD Pipelines"
+          - "APIs: Redfish, IPMI, REST/SOAP, hardware management protocols"
+          - "Monitoring: Prometheus, Grafana, IBM Cloud Logs, PagerDuty"
       
-      - name: "Mobile & Web Development"
+      - name: "Application Development"
         items:
-          - "Android"
-          - "iOS"
-          - "MVMC Framework"
-          - "Web Technologies"
+          - "Languages: Python, Java, JavaScript, Swift, PHP"
+          - "Mobile: Android SDK, iOS QA, Material Design, MDM integration"
+          - "Frameworks: J2EE, Laravel, microservices architecture"
+          - "Testing: Unit testing, UI testing, TDD"
       
-      - name: "Infrastructure & Systems"
+      - name: "Security & Compliance"
         items:
-          - "Linux/Unix Administration"
-          - "TLS"
-          - "Network Troubleshooting"
-          - "Jira Workflow"
-          - "Relational Databases"
+          - "Hardware Security: TPM/PCR, SecureBoot, firmware management"
+          - "Disk Encryption: LUKS, systemd-cryptenroll, encrypted storage management"
+          - "Enterprise: SSL/TLS, LDAP, FIPS compliance, certificate management"
+          - "Container Security: Secure microservices, limited access controls"
 
   interests:
     title: "INTERESTS"

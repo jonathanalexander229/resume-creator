@@ -36,11 +36,32 @@ The project has been successfully modularized into a YAML-based system:
 
 ## Development Commands
 
-Currently no build system exists. Future development will likely include:
-- YAML parsing and validation
-- Template rendering system
-- Static site generation or build process
-- CSS/styling pipeline for multiple themes
+### JavaScript Renderer
+```bash
+python3 -m http.server 8000
+# Open http://localhost:8000/resume-viewer.html
+```
+
+### Python Generator
+```bash
+pip install -r requirements.txt
+python3 build_resume.py
+# Creates resume-output.html
+```
+
+## Planned Features
+
+### Additional Layout Themes (TODO)
+- `layout-modern.yml` - Clean, minimalist design with larger typography
+- `layout-creative.yml` - Bold colors and asymmetric layout
+- `layout-minimal.yml` - Ultra-clean single column or sparse two-column
+
+### Web-Based Editor (TODO)
+- Create `resume-editor.html` for updating resume data via web form
+- Form should load existing `resume-data.yml` and allow editing
+- On save, create backup of existing file (e.g., `resume-data-2025-06-30.yml`)
+- Real-time preview of changes using existing JavaScript renderer
+- Validation of YAML structure before saving
 
 ## Content Structure
 
