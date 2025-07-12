@@ -63,6 +63,39 @@ python3 build_resume.py
 - Real-time preview of changes using existing JavaScript renderer
 - Validation of YAML structure before saving
 
+### AI-Powered Resume Builder Pipeline (FUTURE)
+**Vision:** Transform resume creation from a tedious manual process into an intelligent, guided experience that extracts and organizes professional information automatically.
+
+#### Core AI Pipeline Components
+- **Document Intelligence Engine**: Upload and parse PDFs, images, certificates, project documentation
+- **Skills & Experience Extraction**: AI analysis of uploaded documents to automatically populate resume sections
+- **Intelligent Content Generation**: AI-assisted writing for profile summaries, job descriptions, and achievement bullets
+- **Conversational Resume Builder**: Chat-based interface that guides users through structured questions
+- **Text-to-Speech Integration**: Voice-enabled interaction for accessibility and hands-free resume building
+
+#### Technical Architecture
+- **Frontend**: React-based web interface with drag-and-drop upload zones
+- **Backend**: Node.js/Python API with AI model integration (OpenAI, Claude, or local models)
+- **Document Processing**: OCR and NLP pipelines for text extraction and analysis
+- **Voice Interface**: Web Speech API integration for text-to-speech capabilities
+- **Data Pipeline**: Automated YAML generation from extracted and user-provided information
+
+#### User Experience Flow
+1. **Upload Phase**: Users upload existing resumes, certificates, project screenshots, or documents
+2. **AI Analysis**: System extracts skills, experiences, education, and achievements automatically
+3. **Guided Interview**: Chat interface asks targeted questions to fill gaps and gather context
+4. **Content Enhancement**: AI suggests improvements to descriptions and identifies missing elements
+5. **Template Selection**: Choose from multiple layouts and styling options
+6. **Real-time Preview**: Live preview with instant updates as information is refined
+7. **Export Options**: Generate PDF, HTML, or share via GitHub Pages
+
+#### Benefits
+- **Removes Complexity**: Eliminates the intimidation factor of starting from a blank resume
+- **Saves Time**: Automatic extraction reduces manual data entry by 80%
+- **Improves Quality**: AI-suggested content improvements and professional phrasing
+- **Accessibility**: Voice interface makes resume building accessible to users with different abilities
+- **Continuous Updates**: Easy maintenance and updates as career progresses
+
 ## Content Structure
 
 The resume includes standard sections:
