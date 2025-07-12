@@ -93,16 +93,16 @@ sections:
     categories:
       - name: "Systems & Kernel Development"
         items:
-          - "Custom initrd/kernel development for netboot/live boot platforms"
+          - "Custom initrd/kernel development"
           - "Linux Administration: RHEL, Ubuntu, SUSE, AIX"
-          - "Storage Systems: Ceph, NetApp, Block/File Storage architecture"
+          - "Storage Systems: Ceph, NetApp, Block/File Storage"
           - "Hardware Platforms: Supermicro, Lenovo management"
       
       - name: "Cloud & Infrastructure Engineering"
         items:
-          - "Platforms: IBM Cloud, SoftLayer IMS, distributed storage design"
+          - "Platforms: IBM Cloud, SoftLayer IMS"
           - "Automation: Ansible (Tower/AWX), Jenkins, CI/CD Pipelines"
-          - "APIs: Redfish, IPMI, REST/SOAP, hardware management protocols"
+          - "APIs: Redfish, IPMI, REST/SOAP"
           - "Monitoring: Prometheus, Grafana, IBM Cloud Logs, PagerDuty"
       
       - name: "Application Development"
@@ -115,9 +115,9 @@ sections:
       - name: "Security & Compliance"
         items:
           - "Hardware Security: TPM/PCR, SecureBoot, firmware management"
-          - "Disk Encryption: LUKS, systemd-cryptenroll, encrypted storage management"
+          - "Disk Encryption: LUKS, systemd-cryptenroll"
           - "Enterprise: SSL/TLS, LDAP, FIPS compliance, certificate management"
-          - "Container Security: Secure microservices, limited access controls"
+          - "Container Security: Secure microservices, whitelist access controls"
 
   interests:
     title: "INTERESTS"
