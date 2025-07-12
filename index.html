@@ -223,11 +223,11 @@
                 if (sectionName === 'contact') {
                     sidebarContent += `
                         <h2>CONTACT</h2>
-                        <p>${personal.contact.email}</p>
+                        <p><a href="mailto:${personal.contact.email}" style="color: inherit; text-decoration: none;">${personal.contact.email}</a></p>
                         <p>${personal.contact.location.city}, ${personal.contact.location.state} ${personal.contact.location.zip}</p>
                         <br>
                         <p><strong>Website:</strong></p>
-                        ${personal.contact.links.map(link => `<p>${link.display}</p>`).join('')}
+                        ${personal.contact.links.map(link => `<p><a href="https://${link.url}" target="_blank" style="color: inherit; text-decoration: none;">${link.display}</a></p>`).join('')}
                     `;
                 } else if (sections[sectionName]) {
                     const section = sections[sectionName];
