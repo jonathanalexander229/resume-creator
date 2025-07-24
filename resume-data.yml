@@ -91,9 +91,8 @@ sections:
   skills:
     title: "SKILLS"
     categories:
-      - name: "Systems & Kernel Development"
+      - name: "Systems"
         items:
-          - "Custom initrd/kernel development"
           - "Linux Administration: RHEL, Ubuntu, SUSE, AIX"
           - "Storage Systems: Ceph, NetApp, Block/File Storage"
           - "Hardware Platforms: Supermicro, Lenovo management"
@@ -107,8 +106,8 @@ sections:
       
       - name: "Application Development"
         items:
-          - "Languages: Python, Java, JavaScript, Swift, PHP"
-          - "Mobile: Android SDK, iOS QA, Material Design, MDM integration"
+          - "Languages: Python, Java, JavaScript, Swift, PHP, C++, C"
+          - "Mobile: Android, iOS, Material Design, MDM integration"
           - "Frameworks: J2EE, Laravel, microservices architecture"
           - "Testing: Unit testing, UI testing, TDD"
       
