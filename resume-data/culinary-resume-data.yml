@@ -1,0 +1,106 @@
+personal:
+  full_name: "Jonathan Crissey"
+  contact:
+    email: "joncrissey@icloud.com"
+    location:
+      city: "Leander"
+      state: "Texas"
+      zip: "78641"
+    links:
+      - type: "github"
+        url: "jonathanalexander229.github.io"
+        display: "https://jonathanalexander229.github.io/project-home/"
+  profile_image:
+    path: "IMG_4428.jpeg"
+    alt: "Jonathan Crissey Profile Photo"
+
+sections:
+  profile:
+    title: "PROFILE"
+    content: "Tech professional with a passion for cooking, seeking a part-time cook or back-of-the-house position. Eager to leverage my experience in various kitchen roles to contribute to a team-oriented environment and create exceptional dining experiences. I am a quick learner, dedicated, and reliable, looking to spend my free time doing what I love."
+
+  experience:
+    title: "EXPERIENCE"
+    jobs:
+      - position: "Software Engineer"
+        company: "IBM"
+        location: "Austin, TX"
+        start_date: "2007"
+        end_date: "present"
+        achievements:
+          - "Over 17 years of experience in various software engineering roles, including cloud hardware, storage, mobile development, and enterprise support."
+          - "Specialized in automation, cloud infrastructure, and building reliable, serviceable systems."
+      - position: "Prep, Baker, Cashier, Sandwich Artist"
+        company: "Subway"
+        location: "903 E Bitters Rd Suite 103, San Antonio, TX 78216"
+        start_date: "2004"
+        end_date: "2005"
+        achievements:
+          - "Prepared sandwiches to customer specifications."
+          - "Baked bread and cookies."
+          - "Prepped vegetables and meats."
+          - "Handled cash and credit card transactions."
+          - "Maintained a clean and sanitary work environment."
+      - position: "Fry Cook"
+        company: "T.G.I. Friday's"
+        location: "8363 Agora Pkwy, Selma, TX 78154"
+        start_date: "2001"
+        end_date: "2002"
+        achievements:
+          - "Operated deep fryers to prepare a variety of fried foods."
+          - "Ensured food quality and presentation standards were met."
+          - "Assisted with other kitchen duties as needed."
+      - position: "Kitchen Staff"
+        company: "Jack-in-the-Box"
+        location: "15037 Nacogdoches Rd, San Antonio, TX 78247"
+        start_date: "2000"
+        end_date: "2001"
+        achievements:
+          - "Worked all kitchen stations including grill, fry, and prep."
+          - "Operated cash register and handled customer orders."
+          - "Maintained a clean and organized work area."
+      - position: "Current Favorite Dishes"
+        company: "Home Kitchen"
+        location: "Leander"
+        start_date: ""
+        end_date: ""
+        achievements:
+          - "BBQ Roasted Bone-in Chicken Breast"
+          - "Garden Salad (Green leaf, green mix, red cabbage, cucumber, tomato, avocado, bacon, cheese, with an option for sliced roasted chicken breast)"
+          - "Chicken Curry (made from paste) with onion, squash, and sweet potato"
+          - "Slow-Roast Chuck Roast (slow cooker) with onion, cilantro, and spices"
+          - "2-Egg Omelette with diced tomato, pickled or fresh jalapeno, chopped smoked sausage, and Oaxaca cheese"
+
+  skills:
+    title: "SKILLS"
+    categories:
+      - name: "Kitchen Skills"
+        items:
+          - "Grilling"
+          - "Frying"
+          - "Food Preparation"
+          - "Sandwich Making"
+          - "Salad Preparation"
+          - "Dishwashing"
+          - "Cash Handling"
+          - "Customer Service"
+
+  education:
+    title: "EDUCATION & TRAINING"
+    degrees:
+      - degree: "B.S. Computer Science"
+        institution: "University of Texas at San Antonio"
+        graduation_year: 2007
+      - degree: "Food Service Management"
+        institution: "Madison High School"
+        location: "5005 Stahl Rd, San Antonio, TX 78247"
+        graduation_year: 2002
+        notes: "Completed service credit and participated in culinary competitions."
+
+  availability:
+    title: "AVAILABILITY"
+    content: "Available for 2-3 shifts per week afternoon and evenings. My full-time job at IBM is Monday through Friday, 8am-5pm."
+
+  
+
+  

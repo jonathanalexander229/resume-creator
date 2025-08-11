@@ -10,10 +10,16 @@
 <body>
     <div class="controls" style="padding: 20px; background: #f5f5f5; text-align: center; print:display: none;">
         <h2>Resume Viewer</h2>
-        <button onclick="loadResume()">Reload Resume</button>
-        <select id="layoutSelect" onchange="switchLayout()">
+        <label for="resumeSelect">Select Resume:</label>
+        <select id="resumeSelect" onchange="switchResume()">
+            <option value="resume-data/resume-data.yml">Resume 1</option>
+            <option value="resume-data/resume-data-2.yml">Resume 2</option>
+        </select>
+        <label for="layoutSelect">Select Layout:</label>
+        <select id="layoutSelect" onchange="switchResume()">
             <option value="layout-config.yml">Professional Layout</option>
         </select>
+        <button onclick="loadResume()">Reload Resume</button>
     </div>
     
     <div id="resume-container">
@@ -300,9 +306,12 @@
             const container = document.getElementById('resume-container');
             container.innerHTML = '<div class="loading">Loading resume...</div>';
             
+            const resumeFile = document.getElementById('resumeSelect').value;
+            const layoutFile = document.getElementById('layoutSelect').value;
+
             try {
-                resumeData = await loadYAML('resume-data.yml');
-                layoutConfig = await loadYAML('layout-config.yml');
+                resumeData = await loadYAML(resumeFile);
+                layoutConfig = await loadYAML(layoutFile);
                 
                 if (!resumeData || !layoutConfig) {
                     container.innerHTML = '<div class="error">Error loading YAML files</div>';
@@ -323,8 +332,7 @@
             }
         }
 
-        function switchLayout() {
-            // Future: Load different layout files
+        function switchResume() {
             loadResume();
         }
 

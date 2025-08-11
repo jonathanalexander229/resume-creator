@@ -13,10 +13,14 @@
     </div>
 
     <div class="controls" style="padding: 20px; background: #f5f5f5; text-align: center; print:display: none;">
-        <button onclick="loadResume()">Reload Resume</button>
-        <select id="layoutSelect" onchange="switchLayout()">
+        <label for="resumeSelect">Select Resume:</label>
+        <select id="resumeSelect" onchange="switchResume()">
+        </select>
+        <label for="layoutSelect">Select Layout:</label>
+        <select id="layoutSelect" onchange="switchResume()">
             <option value="layout-config.yml">Professional Layout</option>
         </select>
+        <button onclick="loadResume()">Reload Resume</button>
         <button onclick="window.print()" style="margin-left: 10px;">Print Resume</button>
     </div>
 
@@ -279,7 +283,7 @@
                                 </ul>
                             `;
                         });
-                    }
+                    } 
                 }
             });
             
@@ -299,10 +303,13 @@
         async function loadResume() {
             const container = document.getElementById('resume-container');
             container.innerHTML = '<div class="loading">Loading resume...</div>';
+
+            const resumeFile = document.getElementById('resumeSelect').value;
+            const layoutFile = document.getElementById('layoutSelect').value;
             
             try {
-                resumeData = await loadYAML('resume-data.yml');
-                layoutConfig = await loadYAML('layout-config.yml');
+                resumeData = await loadYAML(resumeFile);
+                layoutConfig = await loadYAML(layoutFile);
                 
                 if (!resumeData || !layoutConfig) {
                     container.innerHTML = '<div class="error">Error loading YAML files</div>';
@@ -323,13 +330,32 @@
             }
         }
 
-        function switchLayout() {
-            // Future: Load different layout files
+        function switchResume() {
             loadResume();
         }
 
         // Load resume on page load
-        document.addEventListener('DOMContentLoaded', loadResume);
+        document.addEventListener('DOMContentLoaded', () => {
+            populateResumeSelector();
+            loadResume();
+        });
+
+        const resumeFiles = [
+            "resume-data.yml",
+            "culinary-resume-data.yml"
+        ];
+
+        function populateResumeSelector() {
+            const select = document.getElementById('resumeSelect');
+            select.innerHTML = ''; // Clear existing options
+
+            resumeFiles.forEach(file => {
+                const option = document.createElement('option');
+                option.value = `resume-data/${file}`;
+                option.textContent = file.replace('.yml', '').replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                select.appendChild(option);
+            });
+        }
     </script>
 </body>
 </html>

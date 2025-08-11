@@ -33,7 +33,7 @@ This creates `resume-output.html` - a self-contained file with embedded CSS.
 
 ## File Structure
 
-- `resume-data.yml` - Your resume content (experience, skills, education)
+- `resume-data/` - Directory containing your resume content in YAML files.
 - `layout-config.yml` - Layout configuration (colors, fonts, spacing, structure)
 - `resume-viewer.html` - JavaScript client-side renderer
 - `build_resume.py` - Python static generator
