@@ -1,0 +1,90 @@
+layout:
+  name: "single-column-minimal"
+  description: "Ultra-clean single column layout"
+  
+  page:
+    format: "letter"
+    max_width: "8.5in"
+    min_height: "11in"
+    
+  structure:
+    type: "single-column"
+    main:
+      width: "100%"
+      position: "center"
+      sections:
+        - "header"
+        - "contact"
+        - "profile"
+        - "experience"
+        - "education" 
+        - "skills"
+        - "interests"
+
+colors:
+  sidebar:
+    background: "#ffffff"
+    text: "#000000"
+    accent: "#cccccc"
+  main:
+    background: "#ffffff"
+    text: "#000000"
+    headings: "#000000"
+    secondary: "#333333"
+    muted: "#666666"
+
+typography:
+  font_family: "'Helvetica Neue', Arial, sans-serif"
+  sizes:
+    name: "36px"
+    main_headings: "18px"
+    sidebar_headings: "16px"
+    job_titles: "14px"
+    sidebar_subheadings: "12px"
+    body_text: "12px"
+    sidebar_text: "12px"
+    profile_text: "14px"
+  weights:
+    headings: "normal"
+    job_titles: "bold"
+    body: "normal"
+  spacing:
+    line_height: 1.6
+    sidebar_line_height: 1.5
+    profile_line_height: 1.7
+
+spacing:
+  container_padding: "80px"
+  sidebar_padding: "0"
+  section_margin: "40px"
+  subsection_margin: "20px"
+  item_margin: "10px"
+  list_indent: "20px"
+
+elements:
+  profile_image:
+    width: "100px"
+    height: "100px"
+    border_radius: "50%"
+    margin_bottom: "30px"
+    position: "left"
+  
+  borders:
+    sidebar_headings:
+      bottom: "none"
+      padding_bottom: "0"
+    main_headings:
+      bottom: "none"
+      padding_bottom: "0"
+  
+  job_header:
+    display: "flex"
+    justify_content: "space-between"
+    align-items: "center"
+
+print:
+  remove_shadows: true
+  full_width: true
+  
+responsive:
+  enabled: false

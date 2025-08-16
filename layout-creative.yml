@@ -1,0 +1,94 @@
+layout:
+  name: "two-column-creative"
+  description: "A creative resume layout with a bold color palette, modern typography, and a dynamic structure."
+  
+  page:
+    format: "letter"
+    max_width: "8.5in"
+    min_height: "11in"
+    
+  structure:
+    type: "two-column"
+    sidebar:
+      width: "38%"
+      position: "left"
+      sections:
+        - "header"
+        - "contact"
+        - "skills"
+    main:
+      width: "62%"
+      position: "right"
+      sections:
+        - "profile"
+        - "experience"
+        - "education"
+        - "interests"
+
+colors:
+  sidebar:
+    background: "#2c3e50" # Dark blue/slate
+    text: "#ffffff"
+    accent: "#e74c3c" # Bold red accent
+  main:
+    background: "#ecf0f1" # Light gray
+    text: "#34495e" # Dark blue/gray text
+    headings: "#2c3e50"
+    secondary: "#7f8c8d" # Gray
+    muted: "#95a5a6" # Lighter gray
+
+typography:
+  font_family: "'Montserrat', sans-serif"
+  sizes:
+    name: "38px"
+    main_headings: "24px"
+    sidebar_headings: "20px"
+    job_titles: "16px"
+    sidebar_subheadings: "14px"
+    body_text: "12px"
+    sidebar_text: "12px"
+    profile_text: "14px"
+  weights:
+    headings: "700" # Bold
+    job_titles: "600" # Semi-bold
+    body: "400" # Regular
+  spacing:
+    line_height: 1.6
+    sidebar_line_height: 1.5
+    profile_line_height: 1.7
+
+spacing:
+  container_padding: "0"
+  sidebar_padding: "40px"
+  section_margin: "30px"
+  subsection_margin: "15px"
+  item_margin: "10px"
+  list_indent: "20px"
+
+elements:
+  profile_image:
+    width: "160px"
+    height: "160px"
+    border_radius: "50%"
+    margin_bottom: "20px"
+    position: "center"
+  
+  borders:
+    sidebar_headings:
+      bottom: "2px solid #e74c3c"
+      padding_bottom: "10px"
+    main_headings:
+      bottom: "2px solid #3498db" # Blue accent for main headings
+      padding_bottom: "8px"
+  
+  job_header:
+    display: "flex"
+    justify_content: "space-between"
+    align-items: "center"
+
+print:
+  remove_shadows: true
+  full_width: true
+  
+responsive:
+  enabled: false

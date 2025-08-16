@@ -19,13 +19,16 @@
         <label for="layoutSelect">Select Layout:</label>
         <select id="layoutSelect" onchange="switchResume()">
             <option value="layout-config.yml">Professional Layout</option>
+            <option value="layout-modern.yml">Modern Layout</option>
+            <option value="layout-creative.yml">Creative Layout</option>
+            <option value="layout-minimal.yml">Minimal Layout</option>
         </select>
         <button onclick="loadResume()">Reload Resume</button>
         <button onclick="window.print()" style="margin-left: 10px;">Print Resume</button>
     </div>
 
     <script>
-        let resumeData = null;
+        let resumeData = null; 
         let layoutConfig = null;
 
         async function loadYAML(filename) {
@@ -44,6 +47,10 @@
             const typography = layout.typography;
             const spacing = layout.spacing;
             const elements = layout.elements;
+            let sidebarWidth = "0px";
+            if (layout.layout.structure.sidebar) {
+                sidebarWidth = layout.layout.structure.sidebar.width;
+            }
             
             return `
                 * {
@@ -72,7 +79,7 @@
                 }
                 
                 .sidebar {
-                    width: ${layout.layout.structure.sidebar.width};
+                    width: ${sidebarWidth};
                     background: ${colors.sidebar.background};
                     color: ${colors.sidebar.text};
                     padding: ${spacing.container_padding} ${spacing.sidebar_padding};
@@ -221,44 +228,46 @@
             
             let sidebarContent = '';
             let mainContent = '';
-            
-            // Render sidebar sections
-            layout.layout.structure.sidebar.sections.forEach(sectionName => {
-                if (sectionName === 'contact') {
-                    sidebarContent += `
-                        <h2>CONTACT</h2>
-                        <p><a href="mailto:${personal.contact.email}" style="color: inherit; text-decoration: none;">${personal.contact.email}</a></p>
-                        <p>${personal.contact.location.city}, ${personal.contact.location.state} ${personal.contact.location.zip}</p>
-                        <br>
-                        <p><strong>Website:</strong></p>
-                        ${personal.contact.links.map(link => `<p><a href="https://${link.url}" target="_blank" style="color: inherit; text-decoration: none;">${link.display}</a></p>`).join('')}
-                    `;
-                } else if (sections[sectionName]) {
-                    const section = sections[sectionName];
-                    sidebarContent += `<h2>${section.title}</h2>`;
-                    
-                    if (sectionName === 'education') {
-                        section.degrees.forEach(degree => {
-                            sidebarContent += `
-                                <h3>${degree.degree}</h3>
-                                <p>${degree.graduation_year}</p>
-                                <p><em>${degree.institution}</em></p>
-                            `;
-                        });
-                    } else if (sectionName === 'skills') {
-                        section.categories.forEach(category => {
-                            sidebarContent += `
-                                <div class="skills-category">
-                                    <strong>• ${category.name}:</strong>
-                                    <p>${category.items.join(', ')}</p>
-                                </div>
-                            `;
-                        });
-                    } else if (sectionName === 'interests') {
-                        sidebarContent += `<p>${section.items.join(' • ')}</p>`;
+
+            if (layout.layout.structure.type === 'two-column') {
+                // Render sidebar sections
+                layout.layout.structure.sidebar.sections.forEach(sectionName => {
+                    if (sectionName === 'contact') {
+                        sidebarContent += `
+                            <h2>CONTACT</h2>
+                            <p><a href="mailto:${personal.contact.email}" style="color: inherit; text-decoration: none;">${personal.contact.email}</a></p>
+                            <p>${personal.contact.location.city}, ${personal.contact.location.state} ${personal.contact.location.zip}</p>
+                            <br>
+                            <p><strong>Website:</strong></p>
+                            ${personal.contact.links.map(link => `<p><a href="https://${link.url}" target="_blank" style="color: inherit; text-decoration: none;">${link.display}</a></p>`).join('')}
+                        `;
+                    } else if (sections[sectionName]) {
+                        const section = sections[sectionName];
+                        sidebarContent += `<h2>${section.title}</h2>`;
+                        
+                        if (sectionName === 'education') {
+                            section.degrees.forEach(degree => {
+                                sidebarContent += `
+                                    <h3>${degree.degree}</h3>
+                                    <p>${degree.graduation_year}</p>
+                                    <p><em>${degree.institution}</em></p>
+                                `;
+                            });
+                        } else if (sectionName === 'skills') {
+                            section.categories.forEach(category => {
+                                sidebarContent += `
+                                    <div class="skills-category">
+                                        <strong>• ${category.name}:</strong>
+                                        <p>${category.items.join(', ')}</p>
+                                    </div>
+                                `;
+                            });
+                        } else if (sectionName === 'interests') {
+                            sidebarContent += `<p>${section.items.join(' • ')}</p>`;
+                        }
                     }
-                }
-            });
+                });
+            }
             
             // Render main content sections
             layout.layout.structure.main.sections.forEach(sectionName => {
@@ -283,21 +292,59 @@
                                 </ul>
                             `;
                         });
-                    } 
+                    } else if (sectionName === 'contact') {
+                        mainContent += `
+                            <p><a href="mailto:${personal.contact.email}" style="color: inherit; text-decoration: none;">${personal.contact.email}</a></p>
+                            <p>${personal.contact.location.city}, ${personal.contact.location.state} ${personal.contact.location.zip}</p>
+                            <br>
+                            <p><strong>Website:</strong></p>
+                            ${personal.contact.links.map(link => `<p><a href="https://${link.url}" target="_blank" style="color: inherit; text-decoration: none;">${link.display}</a></p>`).join('')}
+                        `;
+                    } else if (sectionName === 'education') {
+                        section.degrees.forEach(degree => {
+                            mainContent += `
+                                <h3>${degree.degree}</h3>
+                                <p>${degree.graduation_year}</p>
+                                <p><em>${degree.institution}</em></p>
+                            `;
+                        });
+                    } else if (sectionName === 'skills') {
+                        section.categories.forEach(category => {
+                            mainContent += `
+                                <div class="skills-category">
+                                    <strong>• ${category.name}:</strong>
+                                    <p>${category.items.join(', ')}</p>
+                                </div>
+                            `;
+                        });
+                    } else if (sectionName === 'interests') {
+                        mainContent += `<p>${section.items.join(' • ')}</p>`;
+                    }
                 }
             });
             
-            return `
-                <div class="resume-container">
-                    <div class="sidebar">
-                        <div class="profile-image" style="background-image: url('${personal.profile_image.path}');"></div>
-                        ${sidebarContent}
+            if (layout.layout.structure.type === 'two-column') {
+                return `
+                    <div class="resume-container">
+                        <div class="sidebar">
+                            <div class="profile-image" style="background-image: url('${personal.profile_image.path}');"></div>
+                            ${sidebarContent}
+                        </div>
+                        <div class="main-content">
+                            ${mainContent}
+                        </div>
                     </div>
-                    <div class="main-content">
-                        ${mainContent}
+                `;
+            } else {
+                return `
+                    <div class="resume-container">
+                        <div class="main-content">
+                            <div class="profile-image" style="background-image: url('${personal.profile_image.path}');"></div>
+                            ${mainContent}
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
+            }
         }
 
         async function loadResume() {
