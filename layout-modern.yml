@@ -1,0 +1,94 @@
+layout:
+  name: "two-column-modern"
+  description: "A modern two-column layout with a clean design and a touch of color."
+  
+  page:
+    format: "letter"
+    max_width: "8.5in"
+    min_height: "11in"
+    
+  structure:
+    type: "two-column"
+    sidebar:
+      width: "33%"
+      position: "left"
+      sections:
+        - "contact"
+        - "education" 
+        - "skills"
+        - "interests"
+    main:
+      width: "67%"
+      position: "right"
+      sections:
+        - "header"
+        - "profile"
+        - "experience"
+
+colors:
+  sidebar:
+    background: "#f2f2f2"
+    text: "#333333"
+    accent: "#cccccc"
+  main:
+    background: "#ffffff"
+    text: "#333333"
+    headings: "#007bff" # A modern blue accent color
+    secondary: "#555555"
+    muted: "#666666"
+
+typography:
+  font_family: "'Lato', 'Helvetica Neue', Arial, sans-serif"
+  sizes:
+    name: "40px"
+    main_headings: "20px"
+    sidebar_headings: "18px"
+    job_titles: "15px"
+    sidebar_subheadings: "13px"
+    body_text: "11px"
+    sidebar_text: "11px"
+    profile_text: "13px"
+  weights:
+    headings: "bold"
+    job_titles: "bold"
+    body: "normal"
+  spacing:
+    line_height: 1.5
+    sidebar_line_height: 1.4
+    profile_line_height: 1.6
+
+spacing:
+  container_padding: "45px"
+  sidebar_padding: "35px"
+  section_margin: "28px"
+  subsection_margin: "18px"
+  item_margin: "9px"
+  list_indent: "18px"
+
+elements:
+  profile_image:
+    width: "140px"
+    height: "140px"
+    border_radius: "50%"
+    margin_bottom: "30px"
+    position: "center"
+  
+  borders:
+    sidebar_headings:
+      bottom: "1px solid #cccccc"
+      padding_bottom: "8px"
+    main_headings:
+      bottom: "2px solid #007bff"
+      padding_bottom: "8px"
+  
+  job_header:
+    display: "flex"
+    justify_content: "space-between"
+    align-items: "center"
+
+print:
+  remove_shadows: true
+  full_width: true
+  
+responsive:
+  enabled: false
